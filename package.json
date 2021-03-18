@@ -1,0 +1,23 @@
+{
+  "name": "ygocollectionfilter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cheesums/YGOCollectionFilter.git"
+  },
+  "author": "Cheesums",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cheesums/YGOCollectionFilter/issues"
+  },
+  "homepage": "https://github.com/Cheesums/YGOCollectionFilter#readme",
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "type": "module"
+}
