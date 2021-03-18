@@ -1,6 +1,6 @@
 import fs from 'fs';
 import axios from 'axios';
-
+import prompt from "prompt";
 
 
 const collection = fs.readFileSync("./collection.txt");
@@ -11,8 +11,13 @@ const YGOProDeckEndpoint = "https://db.ygoprodeck.com/api/v7/cardinfo.php";
 
 const IDs = uniqueCollection.join();
 
-const requestUrl = `${YGOProDeckEndpoint}?id=${IDs}`;
+prompt.start();
+const {name, type, atk, def, level, race, attribute, set, sort, staple} = await prompt.get(['name', 'type', 'atk', 'def', 'level', 'race', 'attribute', 'set', 'sort', 'staple']);
 
-const testCard = await axios.get(requestUrl);
+console.log(username);
 
-console.log(testCard);
+//const requestUrl = `${YGOProDeckEndpoint}?id=${IDs}`;
+
+//const testCard = await axios.get(requestUrl);
+
+//console.log(testCard);
