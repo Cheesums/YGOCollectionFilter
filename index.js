@@ -16,9 +16,11 @@ const {name, type, atk, def, level, race, attribute, cardset, archetype, sort, s
 
 const requestUrl = (`${YGOProDeckEndpoint}?`)+(name && `&fname=${name}`)+(type && `&type=${type}`)+(atk && `&atk=${atk}`)+(def && `&def=${def}`)+(level && `&level=${level}`)+(race && `&race=${race}`)+(attribute && `&attribute=${attribute}`)+(cardset && `&cardset=${cardset}`)+(archetype && `&archetype=${archetype}`)+(sort && `&sort=${sort}`)+(staple && `&staple=${staple}`);
 
-console.log(requestUrl);
-//const requestUrl = `${YGOProDeckEndpoint}?id=${IDs}`;
+const response = await axios.get(requestUrl);
 
-const testCards = await axios.get(requestUrl);
-console.log(testCards);
-//console.log(testCards);
+const responseCards = response.data.data;
+const filteredCollection = responseCards.filter((card) => {return IDs.includes(card.id)});
+
+filteredCollection.forEach((card) => {
+    console.log(card.name);
+});
