@@ -12,12 +12,13 @@ const YGOProDeckEndpoint = "https://db.ygoprodeck.com/api/v7/cardinfo.php";
 const IDs = uniqueCollection.join();
 
 prompt.start();
-const {name, type, atk, def, level, race, attribute, set, sort, staple} = await prompt.get(['name', 'type', 'atk', 'def', 'level', 'race', 'attribute', 'set', 'sort', 'staple']);
+const {name, type, atk, def, level, race, attribute, cardset, archetype, sort, staple} = await prompt.get(['name', 'type', 'atk', 'def', 'level', 'race', 'attribute', 'cardset', 'archetype', 'sort', 'staple']);
 
-console.log(username);
+const requestUrl = (`${YGOProDeckEndpoint}?`)+(name && `&fname=${name}`)+(type && `&type=${type}`)+(atk && `&atk=${atk}`)+(def && `&def=${def}`)+(level && `&level=${level}`)+(race && `&race=${race}`)+(attribute && `&attribute=${attribute}`)+(cardset && `&cardset=${cardset}`)+(archetype && `&archetype=${archetype}`)+(sort && `&sort=${sort}`)+(staple && `&staple=${staple}`);
 
+console.log(requestUrl);
 //const requestUrl = `${YGOProDeckEndpoint}?id=${IDs}`;
 
-//const testCard = await axios.get(requestUrl);
-
-//console.log(testCard);
+const testCards = await axios.get(requestUrl);
+console.log(testCards);
+//console.log(testCards);
